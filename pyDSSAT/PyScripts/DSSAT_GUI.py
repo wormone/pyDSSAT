@@ -7,26 +7,26 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-import	os
-import	sys
-from	PyQt4			import	QtCore, QtGui
-import  DSSAT_LIBRARY		as	DL
+import os
+import sys
+from    PyQt4 import QtCore, QtGui
+import DSSAT_LIBRARY        as    DL
 
 # Basic settings
-dims            = {}
-dims['nlat']    = 1
-dims['nlon']    = 1
-dims['res']     = 1
-dims['minlat']  = 10
-dims['minlon']  = 10
-dims['tStep']   = 1
+dims = {}
+dims['nlat'] = 1
+dims['nlon'] = 1
+dims['res'] = 1
+dims['minlat'] = 10
+dims['minlon'] = 10
+dims['tStep'] = 1
 
-baseDir         = '../'
-CDEFileName     = 'POST-VAR-INFO.CDE'
-batchFile	= 'run.v45'
-ctlFile		= '../DSCSM045.CTR'
+baseDir = '../'
+CDEFileName = 'POST-VAR-INFO.CDE'
+batchFile = 'run.v45'
+ctlFile = '../DSCSM045.CTR'
 
-out		= DL.postProcess(baseDir, CDEFileName)
+out = DL.postProcess(baseDir, CDEFileName)
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
@@ -36,11 +36,14 @@ except AttributeError:
 
 try:
     _encoding = QtGui.QApplication.UnicodeUTF8
+
+
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig, _encoding)
 except AttributeError:
     def _translate(context, text, disambig):
         return QtGui.QApplication.translate(context, text, disambig)
+
 
 class Ui_MainWindow(QtGui.QMainWindow):
     def __init__(self):
@@ -98,7 +101,7 @@ class Ui_MainWindow(QtGui.QMainWindow):
         self.spinBox.setMaximum(2015)
         self.spinBox.setObjectName(_fromUtf8("spinBox"))
         self.horizontalLayout.addWidget(self.spinBox)
-	self.simStartYear = self.spinBox
+        self.simStartYear = self.spinBox
         self.simStartYear.valueChanged.connect(self.getSimStartYear)
 
         self.label_6 = QtGui.QLabel(self.verticalLayoutWidget_3)
@@ -116,10 +119,10 @@ class Ui_MainWindow(QtGui.QMainWindow):
         self.spinBox_2.setMaximum(2015)
         self.spinBox_2.setObjectName(_fromUtf8("spinBox_2"))
         self.horizontalLayout.addWidget(self.spinBox_2)
-	self.simEndYear = self.spinBox_2
+        self.simEndYear = self.spinBox_2
         self.simEndYear.valueChanged.connect(self.getSimEndYear)
-        
-	self.label_2 = QtGui.QLabel(self.centralwidget)
+
+        self.label_2 = QtGui.QLabel(self.centralwidget)
         self.label_2.setGeometry(QtCore.QRect(10, 180, 201, 23))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
@@ -176,10 +179,10 @@ class Ui_MainWindow(QtGui.QMainWindow):
         self.spinBox_3.setMaximum(12)
         self.spinBox_3.setObjectName(_fromUtf8("spinBox_3"))
         self.horizontalLayout_2.addWidget(self.spinBox_3)
-	self.plantMon = self.spinBox_3
+        self.plantMon = self.spinBox_3
         self.plantMon.valueChanged.connect(self.getPlantMon)
 
-	self.label_9 = QtGui.QLabel(self.verticalLayoutWidget_4)
+        self.label_9 = QtGui.QLabel(self.verticalLayoutWidget_4)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Arial"))
         font.setPointSize(16)
@@ -194,10 +197,10 @@ class Ui_MainWindow(QtGui.QMainWindow):
         self.spinBox_4.setMaximum(31)
         self.spinBox_4.setObjectName(_fromUtf8("spinBox_4"))
         self.horizontalLayout_2.addWidget(self.spinBox_4)
-	self.plantDay = self.spinBox_4
+        self.plantDay = self.spinBox_4
         self.plantDay.valueChanged.connect(self.getPlantDay)
-        
-	self.label_10 = QtGui.QLabel(self.centralwidget)
+
+        self.label_10 = QtGui.QLabel(self.centralwidget)
         self.label_10.setGeometry(QtCore.QRect(10, 300, 201, 23))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
@@ -228,14 +231,14 @@ class Ui_MainWindow(QtGui.QMainWindow):
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Arial"))
         self.spinBox_5.setFont(font)
-	self.spinBox_5.setMinimum(1)
-	self.spinBox_5.setMaximum(12)
+        self.spinBox_5.setMinimum(1)
+        self.spinBox_5.setMaximum(12)
         self.spinBox_5.setObjectName(_fromUtf8("spinBox_5"))
         self.horizontalLayout_4.addWidget(self.spinBox_5)
-	self.harvestMon = self.spinBox_5
+        self.harvestMon = self.spinBox_5
         self.harvestMon.valueChanged.connect(self.getHarvestMon)
-        
-	self.label_12 = QtGui.QLabel(self.verticalLayoutWidget_6)
+
+        self.label_12 = QtGui.QLabel(self.verticalLayoutWidget_6)
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Arial"))
         font.setPointSize(16)
@@ -246,14 +249,14 @@ class Ui_MainWindow(QtGui.QMainWindow):
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Arial"))
         self.spinBox_6.setFont(font)
-	self.spinBox_6.setMinimum(1)
-	self.spinBox_6.setMaximum(31)
+        self.spinBox_6.setMinimum(1)
+        self.spinBox_6.setMaximum(31)
         self.spinBox_6.setObjectName(_fromUtf8("spinBox_6"))
         self.horizontalLayout_4.addWidget(self.spinBox_6)
-	self.harvestDay = self.spinBox_6
+        self.harvestDay = self.spinBox_6
         self.harvestDay.valueChanged.connect(self.getHarvestDay)
-        
-	self.Ready = QtGui.QPushButton(self.centralwidget)
+
+        self.Ready = QtGui.QPushButton(self.centralwidget)
         self.Ready.setGeometry(QtCore.QRect(10, 360, 131, 60))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
@@ -437,9 +440,9 @@ class Ui_MainWindow(QtGui.QMainWindow):
         self.comboBox_5.addItem(_fromUtf8(""))
         self.comboBox_5.addItem(_fromUtf8(""))
         self.comboBox_5.addItem(_fromUtf8(""))
-	self.comboBox_5.activated.connect(self.passCropType)		# Activate comboBox
-        
-	self.label_14 = QtGui.QLabel(self.centralwidget)
+        self.comboBox_5.activated.connect(self.passCropType)  # Activate comboBox
+
+        self.label_14 = QtGui.QLabel(self.centralwidget)
         self.label_14.setGeometry(QtCore.QRect(140, 80, 111, 23))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
@@ -456,9 +459,9 @@ class Ui_MainWindow(QtGui.QMainWindow):
         self.comboBox_6.addItem(_fromUtf8(""))
         self.comboBox_6.addItem(_fromUtf8(""))
         self.comboBox_6.addItem(_fromUtf8(""))
-	self.comboBox_6.activated.connect(self.passSoilType)		# Activate comboBox
-        
-	self.label_15 = QtGui.QLabel(self.centralwidget)
+        self.comboBox_6.activated.connect(self.passSoilType)  # Activate comboBox
+
+        self.label_15 = QtGui.QLabel(self.centralwidget)
         self.label_15.setGeometry(QtCore.QRect(10, 130, 201, 23))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
@@ -474,9 +477,9 @@ class Ui_MainWindow(QtGui.QMainWindow):
         self.comboBox_7.setObjectName(_fromUtf8("comboBox_7"))
         self.comboBox_7.addItem(_fromUtf8(""))
         self.comboBox_7.addItem(_fromUtf8(""))
-	self.comboBox_7.activated.connect(self.passWeaStation)		# Activate comboBox
-        
-	self.label = QtGui.QLabel(self.centralwidget)
+        self.comboBox_7.activated.connect(self.passWeaStation)  # Activate comboBox
+
+        self.label = QtGui.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(10, 50, 161, 23))
         font = QtGui.QFont()
         font.setFamily(_fromUtf8("Georgia"))
@@ -1001,23 +1004,23 @@ class Ui_MainWindow(QtGui.QMainWindow):
         MainWindow.setStatusBar(self.statusbar)
         self.actionLoad_Summary_out = QtGui.QAction(MainWindow)
         self.actionLoad_Summary_out.setObjectName(_fromUtf8("actionLoad_Summary_out"))
-	self.actionLoad_Summary_out.setShortcut('Ctrl+O')
-	self.actionLoad_Summary_out.setStatusTip('Open Original File')
-	self.actionLoad_Summary_out.triggered.connect(self.showDialogOpen)
+        self.actionLoad_Summary_out.setShortcut('Ctrl+O')
+        self.actionLoad_Summary_out.setStatusTip('Open Original File')
+        self.actionLoad_Summary_out.triggered.connect(self.showDialogOpen)
 
         self.actionLoad_NetCDF_File = QtGui.QAction(MainWindow)
         self.actionLoad_NetCDF_File.setObjectName(_fromUtf8("actionLoad_NetCDF_File"))
-	self.actionLoad_NetCDF_File.setShortcut('Ctrl+N')
-	self.actionLoad_NetCDF_File.setStatusTip('Open NetCDF File')
-	self.actionLoad_NetCDF_File.triggered.connect(self.showDialogOpen)
-        
-	self.actionRecent_Files = QtGui.QAction(MainWindow)
+        self.actionLoad_NetCDF_File.setShortcut('Ctrl+N')
+        self.actionLoad_NetCDF_File.setStatusTip('Open NetCDF File')
+        self.actionLoad_NetCDF_File.triggered.connect(self.showDialogOpen)
+
+        self.actionRecent_Files = QtGui.QAction(MainWindow)
         self.actionRecent_Files.setObjectName(_fromUtf8("actionRecent_Files"))
-	self.actionRecent_Files.setShortcut('Ctrl+R')
-	self.actionRecent_Files.setStatusTip('Open Recent File')
-	self.actionRecent_Files.triggered.connect(self.showDialogOpen)
-        
-	self.actionExit = QtGui.QAction(MainWindow)
+        self.actionRecent_Files.setShortcut('Ctrl+R')
+        self.actionRecent_Files.setStatusTip('Open Recent File')
+        self.actionRecent_Files.triggered.connect(self.showDialogOpen)
+
+        self.actionExit = QtGui.QAction(MainWindow)
         self.actionExit.setObjectName(_fromUtf8("actionExit"))
         self.action_out_to_netCDF = QtGui.QAction(MainWindow)
         self.action_out_to_netCDF.setObjectName(_fromUtf8("action_out_to_netCDF"))
@@ -1058,7 +1061,7 @@ class Ui_MainWindow(QtGui.QMainWindow):
         self.label_11.setText(_translate("MainWindow", "Month", None))
         self.label_12.setText(_translate("MainWindow", "    Date", None))
         self.Ready.setText(_translate("MainWindow", "Run Model", None))
-	self.Ready.clicked.connect(self.runModelEvent)
+        self.Ready.clicked.connect(self.runModelEvent)
 
         self.label_13.setText(_translate("MainWindow", "Crop Type", None))
         self.comboBox_5.setItemText(0, _translate("MainWindow", "Maize", None))
@@ -1099,29 +1102,29 @@ class Ui_MainWindow(QtGui.QMainWindow):
         self.comboBox.setItemText(0, _translate("MainWindow", "Yield", None))
         self.comboBox.setItemText(1, _translate("MainWindow", "Precipitation", None))
         self.comboBox.setItemText(2, _translate("MainWindow", "Max Temperature", None))
-	#print self.comboBox.currentText()
-	self.comboBox.activated.connect(self.passPlotVar)		# Activate comboBox
+        # print self.comboBox.currentText()
+        self.comboBox.activated.connect(self.passPlotVar)  # Activate comboBox
 
         self.Ready_3.setText(_translate("MainWindow", "Plot", None))
         self.Ready_3.clicked.connect(self.plotTS)
-	
-	self.Ready_4.setText(_translate("MainWindow", "To NetCDF", None))
-	self.Ready_4.clicked.connect(self.showDialogSave)
-        #self.Ready_4.clicked.connect(self.convert)
+
+        self.Ready_4.setText(_translate("MainWindow", "To NetCDF", None))
+        self.Ready_4.clicked.connect(self.showDialogSave)
+        # self.Ready_4.clicked.connect(self.convert)
 
         self.label_20.setText(_translate("MainWindow", "Select a variable", None))
         self.label_4.setText(_translate("MainWindow", "pyDSSAT", None))
         self.label_17.setText(_translate("MainWindow", "2015 © APC 524 Project.", None))
         self.label_18.setText(_translate("MainWindow", "Princeton University", None))
-	
+
         self.comboBox_4.setItemText(0, _translate("MainWindow", "Spatial", None))
         self.comboBox_4.setItemText(1, _translate("MainWindow", "Seasonal", None))
         self.comboBox_4.setItemText(2, _translate("MainWindow", "Batch", None))
         self.comboBox_4.setItemText(3, _translate("MainWindow", "Debug", None))
-	self.comboBox_4.activated.connect(self.passRunMode)		# Activate comboBox
-        
-	self.Ready_2.setText(_translate("MainWindow", "Reinitialize", None))
-	self.Ready_2.clicked.connect(self.reInitialize)
+        self.comboBox_4.activated.connect(self.passRunMode)  # Activate comboBox
+
+        self.Ready_2.setText(_translate("MainWindow", "Reinitialize", None))
+        self.Ready_2.clicked.connect(self.reInitialize)
 
         self.menuFile.setTitle(_translate("MainWindow", "File", None))
         self.menuHelp.setTitle(_translate("MainWindow", "Help", None))
@@ -1137,99 +1140,104 @@ class Ui_MainWindow(QtGui.QMainWindow):
         self.actionAbout.setText(_translate("MainWindow", "About...", None))
 
     def plotTS(self):
-	if self.selectFullVar == 'Yield':
-		self.varName = 'HWAM'
-	elif self.selectFullVar == 'Precipitation':
-		self.varName = 'PRCM'
-	elif self.selectFullVar == 'Max Temperature':
-		self.varName = 'TMAXA'
+        if self.selectFullVar == 'Yield':
+            self.varName = 'HWAM'
+        elif self.selectFullVar == 'Precipitation':
+            self.varName = 'PRCM'
+        elif self.selectFullVar == 'Max Temperature':
+            self.varName = 'TMAXA'
 
-	out.drawTimeSeries(self.inFileName, self.varName)
+        out.drawTimeSeries(self.inFileName, self.varName)
 
     def showDialogOpen(self):
-	openFileName 	= QtGui.QFileDialog.getOpenFileName(self, 'Open file','./')
-	self.inFileName	= unicode(openFileName)		# Convert the QString to normal python readable string.
-	# file = open(filename)
-	# data = file.read()
-	# print	data
-	# return unicode(filename)
+        openFileName = QtGui.QFileDialog.getOpenFileName(self, 'Open file', './')
+        self.inFileName = unicode(openFileName)  # Convert the QString to normal python readable string.
+
+    # file = open(filename)
+    # data = file.read()
+    # print	data
+    # return unicode(filename)
 
     def showDialogSave(self):
-	saveFileName	= QtGui.QFileDialog.getSaveFileName(self, 'Save file','./')
-	outFileName	= unicode(saveFileName)
-	out.Create_NETCDF_File(dims, self.inFileName, outFileName)
+        saveFileName = QtGui.QFileDialog.getSaveFileName(self, 'Save file', './')
+        outFileName = unicode(saveFileName)
+        out.Create_NETCDF_File(dims, self.inFileName, outFileName)
 
     def passPlotVar(self):
-	self.selectFullVar = str(self.comboBox.currentText())
-    
+        self.selectFullVar = str(self.comboBox.currentText())
+
     def passRunMode(self):
-	self.selectRunMode = str(self.comboBox_4.currentText())
+        self.selectRunMode = str(self.comboBox_4.currentText())
 
     def passCropType(self):
-	self.selectCropType = str(self.comboBox_5.currentText())
-    
+        self.selectCropType = str(self.comboBox_5.currentText())
+
     def passSoilType(self):
-	self.selectSoilType = str(self.comboBox_6.currentText())
-    
+        self.selectSoilType = str(self.comboBox_6.currentText())
+
     def passWeaStation(self):
-	self.selectWeaStation = str(self.comboBox_7.currentText())
-   
+        self.selectWeaStation = str(self.comboBox_7.currentText())
+
     # Get the spinbox value for simulation year 
     def getSimStartYear(self):
-	self.sYear = self.simStartYear.value()
-	print	self.sYear
-    
+        self.sYear = self.simStartYear.value()
+        print    self.sYear
+
     def getSimEndYear(self):
-	self.eYear = self.simEndYear.value()
-	print	self.eYear
+        self.eYear = self.simEndYear.value()
+        print    self.eYear
 
     def getPlantMon(self):
-	self.pMon = self.plantMon.value()
-	print	self.pMon
+        self.pMon = self.plantMon.value()
+        print    self.pMon
 
     def getPlantDay(self):
-	self.pDay = self.plantDay.value()
-	print	self.pDay
-    
+        self.pDay = self.plantDay.value()
+        print    self.pDay
+
     def getHarvestMon(self):
-	self.hMon = self.harvestMon.value()
-	print	self.hMon
+        self.hMon = self.harvestMon.value()
+        print    self.hMon
 
     def getHarvestDay(self):
-	self.hDay = self.harvestDay.value()
-	print	self.hDay
+        self.hDay = self.harvestDay.value()
+        print    self.hDay
 
     def genBatCtlFile(self):
-	DL.File(crop=self.selectCropType, weather=self.selectWeaStation, st_yr=self.sYear, ed_yr=self.eYear, plant_month=self.pMon,plant_date=self.pDay, mode=self.runMode)
+        DL.File(crop=self.selectCropType, weather=self.selectWeaStation, st_yr=self.sYear, ed_yr=self.eYear,
+                plant_month=self.pMon, plant_date=self.pDay, mode=self.runMode)
 
     def closeEvent(self, event):
-	reply = QtGui.QMessageBox.question(self, 'Message',"Are you sure to quit?", QtGui.QMessageBox.Yes,QtGui.QMessageBox.No)
-	if reply == QtGui.QMessageBox.Yes:
-		event.accept()
-	else:
-		event.ignore()
+        reply = QtGui.QMessageBox.question(self, 'Message', "Are you sure to quit?", QtGui.QMessageBox.Yes,
+                                           QtGui.QMessageBox.No)
+        if reply == QtGui.QMessageBox.Yes:
+            event.accept()
+        else:
+            event.ignore()
 
     def runModelEvent(self, event):
-	if self.selectRunMode 	== 'Spatial':
-		self.runMode	= 'S'
-	elif self.selectRunMode	== 'Seasonal':
-		self.runMode	= 'N'
-	elif self.selectRunMode	== 'Batch':
-		self.runMode	= 'B'
-	elif self.selectRunMode	== 'Debug':
-		self.runMode	= 'D'
+        if self.selectRunMode == 'Spatial':
+            self.runMode = 'S'
+        elif self.selectRunMode == 'Seasonal':
+            self.runMode = 'N'
+        elif self.selectRunMode == 'Batch':
+            self.runMode = 'B'
+        elif self.selectRunMode == 'Debug':
+            self.runMode = 'D'
 
-	self.genBatCtlFile()
-	new_model = DL.Model(self.runMode, fileb = batchFile, filectl = ctlFile)
-	new_model.run()
-	reply = QtGui.QMessageBox.information(self, 'Message',"Successfully run DSSAT!")
-	return
+        self.genBatCtlFile()
+        new_model = DL.Model(self.runMode, fileb=batchFile, filectl=ctlFile)
+        new_model.run()
+        reply = QtGui.QMessageBox.information(self, 'Message', "Successfully run DSSAT!")
+        return
+
     def reInitialize(self):
-        os.system('rm %s'%(batchFile))
-	os.system('rm %s%s.GSX'%(self.selectWeaStation,self.sYear))
+        os.system('rm %s' % (batchFile))
+        os.system('rm %s%s.GSX' % (self.selectWeaStation, self.sYear))
+
 
 if __name__ == "__main__":
-        app = QtGui.QApplication(sys.argv)
-        ex = Ui_MainWindow()
-        ex.show()
-        sys.exit(app.exec_())
+    app = QtGui.QApplication(sys.argv)
+    ex = Ui_MainWindow()
+    ex.show()
+    sys.exit(app.exec_())
